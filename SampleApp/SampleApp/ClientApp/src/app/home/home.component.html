@@ -1,0 +1,41 @@
+  <div style="display:flex;">
+    <div class="col-md-4">
+        <form>
+          <div class="form-group">
+            <label for="firstName">First Name <i style="color:red;">*</i></label>
+            <input type="text" class="form-control" name="firstName" required [(ngModel)]="formData.firstName" placeholder="Enter First Name">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <i style="color:red;">*</i></label>
+            <input type="text" class="form-control" name="lastName" required [(ngModel)]="formData.lastName" placeholder="Enter Last Name">
+          </div>
+          <input type="submit" class="btn btn-primary" value="Save" (click)="onSave()" />
+
+          <div class="alert alert-danger" style="margin-top:10px;" *ngIf="isInvalidData">
+            * Mandatory fields are required!
+          </div>
+        </form>
+      </div>
+
+
+    <div class="col-md-6">
+      <table class='table table-bordered' aria-labelledby="tableLabel" *ngIf="userList.length > 0">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList">
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
